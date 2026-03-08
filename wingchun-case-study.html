@@ -13,7 +13,22 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top portfolio-nav">
+  <!--
+    wingchun-case-study.html
+    Purpose: Portfolio case study page for the Wing Chun Kung Fu Online project.
+    Notes: This file has been annotated with structural and accessibility comments.
+    Accessibility changes applied:
+      - Added a skip link to jump to main content for keyboard users.
+      - Added ARIA landmark roles and labels to key regions (nav as banner, main as main).
+      - Added `loading="lazy"` and `decoding="async"` to screenshots to improve performance.
+      - Added ids and aria-labelledby attributes for gallery regions to improve screen-reader context.
+  -->
+
+  <!-- Skip link: allows keyboard users to jump directly to main content. Inline focus behavior
+       is used to avoid requiring CSS changes in styles.css; visible on focus. -->
+  <a href="#main-content" class="skip-link" style="position:absolute;left:-999px;top:auto;z-index:1000;" onfocus="this.style.left='0';" onblur="this.style.left='-999px';">Skip to main content</a>
+  <!-- Primary site navigation (banner landmark) -->
+  <nav class="navbar navbar-expand-lg fixed-top portfolio-nav" role="banner" aria-label="Primary navigation">
     <div class="container">
       <a class="navbar-brand" href="index.html">John Stanley</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#caseNav" aria-controls="caseNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +43,8 @@
     </div>
   </nav>
 
-  <main class="case-study-page">
+  <!-- Main content (main landmark). `tabindex="-1"` allows the skip link to focus here reliably. -->
+  <main id="main-content" class="case-study-page" role="main" tabindex="-1">
     <section class="content-section case-hero">
       <div class="container">
         <p class="eyebrow">Case Study</p>
@@ -79,17 +95,18 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Before</p>
-          <h2>Original presentation</h2>
+          <h2 id="before-heading">Original presentation</h2>
         </div>
-        <div class="gallery-grid">
+        <!-- Gallery of 'Before' screenshots. `aria-labelledby` connects this grid to the section heading. -->
+        <div class="gallery-grid" aria-labelledby="before-heading" role="region">
           <figure class="gallery-card">
-            <img src="images/swc/before/swc-before-1.png" alt="Wing Chun site before redesign screenshot 1">
+            <img src="images/swc/before/swc-before-1.png" alt="Wing Chun site before redesign screenshot 1" loading="lazy" decoding="async">
           </figure>
           <figure class="gallery-card">
-            <img src="images/swc/before/swc-before-2.png" alt="Wing Chun site before redesign screenshot 2">
+            <img src="images/swc/before/swc-before-2.png" alt="Wing Chun site before redesign screenshot 2" loading="lazy" decoding="async">
           </figure>
           <figure class="gallery-card">
-            <img src="images/swc/before/swc-before-3.png" alt="Wing Chun site before redesign screenshot 3">
+            <img src="images/swc/before/swc-before-3.png" alt="Wing Chun site before redesign screenshot 3" loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
@@ -99,17 +116,18 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">After</p>
-          <h2>Current presentation</h2>
+          <h2 id="after-heading">Current presentation</h2>
         </div>
-        <div class="gallery-grid">
+        <!-- Gallery of 'After' screenshots. `aria-labelledby` connects this grid to the section heading. -->
+        <div class="gallery-grid" aria-labelledby="after-heading" role="region">
           <figure class="gallery-card">
-            <img src="images/swc/after/swc-after-1.png" alt="Wing Chun site after redesign screenshot 1">
+            <img src="images/swc/after/swc-after-1.png" alt="Wing Chun site after redesign screenshot 1" loading="lazy" decoding="async">
           </figure>
           <figure class="gallery-card">
-            <img src="images/swc/after/swc-after-2.png" alt="Wing Chun site after redesign screenshot 2">
+            <img src="images/swc/after/swc-after-2.png" alt="Wing Chun site after redesign screenshot 2" loading="lazy" decoding="async">
           </figure>
           <figure class="gallery-card">
-            <img src="images/swc/after/swc-after-3.png" alt="Wing Chun site after redesign screenshot 3">
+            <img src="images/swc/after/swc-after-3.png" alt="Wing Chun site after redesign screenshot 3" loading="lazy" decoding="async">
           </figure>
         </div>
       </div>
